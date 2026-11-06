@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maël Chevalier</title>
+<meta name="description" content="Maël Chevalier, programmer. Projects, demoreel and contact.">
+<meta property="og:title" content="Maël Chevalier">
+<meta property="og:description" content="Programmer. Projects, demoreel and contact.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://maelchvlr.github.io/">
+<meta property="og:image" content="https://maelchvlr.github.io/media/toog-08.jpg">
+<meta name="theme-color" content="#0b1a1c">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Hanken+Grotesk:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+  // One dark background per load, never the same one twice in a row. Runs here so the page never flashes another colour.
+  // Each entry: page, raised surface, hairline.
+  (function () {
+    var themes = [
+      ['#0b1a1c', '#102629', '#27423f'],
+      ['#0c1526', '#131f36', '#2a3a58'],
+      ['#1a1024', '#241733', '#423055'],
+      ['#230e16', '#301620', '#53303c'],
+      ['#0e1c12', '#15281a', '#2c4733'],
+      ['#1e150c', '#2a1e12', '#4a3a28'],
+      ['#14171c', '#1c2027', '#373d47'],
+      ['#07202b', '#0d2c3a', '#234a5b']
+    ];
+    var last = null;
+    try { last = localStorage.getItem('background'); } catch (e) {}
+    var pool = themes.filter(function (t) { return t[0] !== last; });
+    var pick = pool[Math.floor(Math.random() * pool.length)];
+    try { localStorage.setItem('background', pick[0]); } catch (e) {}
+    var root = document.documentElement.style;
+    root.setProperty('--ink', pick[0]);
+    root.setProperty('--ink-2', pick[1]);
+    root.setProperty('--line', pick[2]);
+    document.querySelector('meta[name="theme-color"]').content = pick[0];
+  })();
+</script>
+</head>
+<body>
+<a class="skip" href="#work">Skip to projects</a>
+
+<header class="bar">
+  <a class="bar-name" href="#top">Maël Chevalier</a>
+  <nav aria-label="Main">
+    <a href="#reel">Reel</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<section class="hero" id="hero">
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="hero-text">
+    <p class="status"><span class="dot" aria-hidden="true"></span>Looking for a programming job</p>
+    <h1>Maël<br>Chevalier</h1>
+    <p class="lede">Programmer</p>
+    <button id="hero-motion" type="button" hidden>Animate</button>
+  </div>
+</section>
+
+<section class="about wrap">
+  <div class="about-text">
+    <p class="quote">To me, making games has to be done with an intent to be something to remember.</p>
+    <p>I love making games and I always have ideas for them. I'm more than lines of code: I care about what the game is and how it feels to play.</p>
+  </div>
+  <dl class="spec">
+    <div><dt>Worked with</dt><dd>Odd Ones, Clock Out, Gaman Games (internship, 2025)</dd></div>
+    <div><dt>Studied at</dt><dd>ArtFX Montpellier, master in gameplay and graphics programming, 2025<br>Faculté des Sciences de Montpellier, bachelor's degree in computer science</dd></div>
+    <div><dt>Engines</dt><dd>Unreal Engine 5, Unity</dd></div>
+    <div><dt>Languages</dt><dd>C++, C, C#, Python, Blueprints</dd></div>
+    <div><dt>Graphics APIs</dt><dd>OpenGL, DirectX 12, Vulkan</dd></div>
+  </dl>
+</section>
+
+<section class="reel wrap" id="reel">
+  <h2>Demoreel 2025</h2>
+  <button class="reel-play" id="reel-play" type="button" aria-label="Play the 2025 demoreel from YouTube">
+    <img src="media/reel-b.jpg" alt="" width="1280" height="720" loading="lazy">
+    <span class="reel-btn"><span aria-hidden="true">▶</span> Play reel</span>
+  </button>
+  <p class="note">Loads from YouTube when you press play. <a href="https://www.youtube.com/watch?v=LGbFkxyj4oM">Open on YouTube</a></p>
+</section>
+
+<section class="work wrap" id="work">
+  <h2>Work</h2>
+
+  <article class="feature" id="toog">
+    <figure class="clip feature-media">
+      <video data-src="media/toog-gameplay.mp4" poster="media/toog-gameplay.jpg" muted loop playsinline preload="none" width="1280" height="720" aria-label="That One Otter Game gameplay: two otters crossing a park"></video>
+    </figure>
+    <div class="feature-body">
+      <header class="head">
+        <h3>That One Otter Game</h3>
+        <p class="tags">Unreal Engine 5 · C++ · Blueprints · Team of 7 · 2025</p>
+      </header>
+      <p>A mischievous co-op adventure where two young otters take on a wild rite of passage to prove their worth. Free on Steam, rated Very Positive with over 1,300 reviews, and shown in the Unreal Engine Student Showcase 2025.</p>
+      <p>This was my first Unreal 5 project, and it taught me Blueprints and C++ applied to Unreal. I was in charge of several technical challenges, including the camera that keeps two players in one fluid shot, and respawn. I still ship patches for the Steam version.</p>
+      <p class="links"><a href="https://store.steampowered.com/app/3823460/That_One_Otter_Game/">Steam page</a></p>
+    </div>
+    <div class="feature-strip">
+      <figure class="clip">
+        <video data-src="media/toog-camera.mp4" poster="media/toog-camera.jpg" muted loop playsinline preload="none" width="1120" height="500" aria-label="Debug view of the two-player camera in a test map"></video>
+        <figcaption>Two-player camera, debug view</figcaption>
+      </figure>
+      <figure class="still"><img src="media/toog-08.jpg" alt="Two otters racing a zebra in That One Otter Game" width="1280" height="720" loading="lazy"></figure>
+      <figure class="still"><img src="media/toog-13.jpg" alt="Otters scrubbing a penguin covered in foam" width="1280" height="720" loading="lazy"></figure>
+    </div>
+  </article>
+
+  <div class="current">
+    <article class="entry" id="atj">
+      <header class="head">
+        <p class="studio">Clock Out</p>
+        <h3>All Time Jack</h3>
+        <p class="tags">Unreal Engine 5 · C++ · Blueprints · In development</p>
+      </header>
+      <p>A multiplayer blackjack roguelike deckbuilder for 2 to 4 players. History's greatest gamblers sit down at Jack's casino, and whoever leaves with the most chips is crowned Gambler Of All Time.</p>
+      <p class="note">No images to show yet.</p>
+      <p class="note">Code shared about half and half with Claude.</p>
+    </article>
+
+    <article class="entry" id="glint">
+      <header class="head">
+        <p class="studio">Personal tool</p>
+        <h3><span class="logo" aria-hidden="true"></span>Glint</h3>
+        <p class="tags">Tauri · Rust · Svelte · TypeScript · Private</p>
+      </header>
+      <p>A light, fast, fully customisable IDE for Unreal, Unity and Godot. Claude Code drives it through an MCP server, so the agent works in the same editor I do.</p>
+      <p class="note">Mostly written by Claude. I decide what it does, write the specs and test it.</p>
+    </article>
+
+    <article class="entry entry-quiet" id="together-apart">
+      <header class="head">
+        <p class="studio">Odd Ones</p>
+        <h3>Together Apart</h3>
+      </header>
+      <p class="note">I can't share anything else about this one yet.</p>
+    </article>
+  </div>
+
+  <div class="pair">
+    <article class="entry" id="anthesteria">
+      <figure class="clip">
+        <video data-src="media/anthesteria.mp4" poster="media/anthesteria.jpg" muted loop playsinline preload="none" width="1120" height="630" aria-label="Anthesteria gameplay: two goddesses growing plants on a snowy island"></video>
+      </figure>
+      <header class="head">
+        <h3>Anthesteria</h3>
+        <p class="tags">Unity · Game jam · Team of 4</p>
+      </header>
+      <p>A cozy spring co-op platformer. You play Demeter and Persephone and bring summer back, solving small puzzles with each other's unique abilities. It taught me simple camera work and how to design and implement fun mechanics.</p>
+      <p class="links"><a href="https://gsjogames.itch.io/anthesteria">Download on itch.io</a></p>
+    </article>
+
+    <article class="entry" id="isaac">
+      <figure class="clip">
+        <video data-src="media/isaac.mp4" poster="media/isaac.jpg" muted loop playsinline preload="none" width="960" height="572" aria-label="Modded Binding of Isaac room with custom items in action"></video>
+      </figure>
+      <header class="head">
+        <h3>TXSSA'S</h3>
+        <p class="tags">The Binding of Isaac mod · Lua</p>
+      </header>
+      <p>A mod made for a streamer. Grenneh's was the first version, TXSSA'S is the second: 2 playable characters, 17 items, 2 pills, a transformation and a special room.</p>
+      <p class="links"><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3745364314">Steam Workshop</a> <a href="https://github.com/maelchvlr/Grenneh-s">V1 source</a></p>
+    </article>
+  </div>
+
+  <section class="lab" id="graphics" aria-labelledby="lab-title">
+    <header class="lab-head">
+      <h3 id="lab-title">Graphics experiments</h3>
+      <p>What I built while learning different graphics APIs and shaders during my studies.</p>
+    </header>
+    <div class="lab-grid">
+      <figure class="tile">
+        <div class="clip"><video data-src="media/fluid.mp4" poster="media/fluid.jpg" muted loop playsinline preload="none" width="960" height="544" aria-label="Raymarched fluid pooling around a sphere"></video></div>
+        <figcaption><b>Fluid simulation</b><span>Unity compute. A raymarching algorithm by Sebastian Lague, adapted to get a simple fluid as realistic as I could.</span></figcaption>
+      </figure>
+      <figure class="tile">
+        <div class="clip"><video data-src="media/opengl.mp4" poster="media/opengl.jpg" muted loop playsinline preload="none" width="960" height="536" aria-label="OpenGL scene with models, coloured lights and shadows"></video></div>
+        <figcaption><b>OpenGL renderer</b><span>Model loading, Phong lighting, reflected lights and shadow mapping. <a href="https://github.com/maelchvlr/Graphics-Programming-Projects">Source</a></span></figcaption>
+      </figure>
+      <figure class="tile">
+        <div class="clip"><video data-src="media/dx12.mp4" poster="media/dx12.jpg" muted loop playsinline preload="none" width="960" height="396" aria-label="DirectX 12 scene with two cubes casting a shadow"></video></div>
+        <figcaption><b>DirectX 12 shader loader</b><span>A small framework that loads scenes and shaders, with simple shadow casting. <a href="https://github.com/maelchvlr/DirectX12Framework">Source</a></span></figcaption>
+      </figure>
+      <figure class="tile">
+        <div class="clip"><video data-src="media/vulkan.mp4" poster="media/vulkan.jpg" muted loop playsinline preload="none" width="960" height="528" aria-label="Helicopter model rendered with Vulkan"></video></div>
+        <figcaption><b>Vulkan model loader</b><span>Basic model loading and simple shaders on the Vulkan API. <a href="https://github.com/maelchvlr/Graphics-Programming-Projects">Source</a></span></figcaption>
+      </figure>
+      <figure class="tile">
+        <div class="clip"><video data-src="media/particles.mp4" poster="media/particles.jpg" muted loop playsinline preload="none" width="640" height="506" aria-label="Coloured particles trailing behind the cursor"></video></div>
+        <figcaption><b>Compute particles</b><span>1,000 particles updated by an OpenGL compute shader, respawning at the cursor. The top of this page is a WebGL port of it. <a href="https://github.com/maelchvlr/shaderLoader">Source</a></span></figcaption>
+      </figure>
+      <figure class="tile">
+        <div class="clip"><video data-src="media/engine.mp4" poster="media/engine.jpg" muted loop playsinline preload="none" width="720" height="690" aria-label="First-person walk around crates in a small custom engine"></video></div>
+        <figcaption><b>Custom engine</b><span>A little engine in C, built to make a Doom-like. <a href="https://github.com/maelchvlr/DoomLike">Source</a></span></figcaption>
+      </figure>
+    </div>
+  </section>
+</section>
+
+<section class="contact wrap" id="contact">
+  <h2>Contact</h2>
+  <p class="mail"><a href="mailto:maelchvlr@gmail.com">maelchvlr@gmail.com</a></p>
+  <button class="copy" id="copy" type="button" data-copy="maelchvlr@gmail.com">Copy address</button>
+  <ul class="elsewhere">
+    <li><a href="https://www.linkedin.com/in/maelchvlr/">LinkedIn</a></li>
+    <li><a href="https://github.com/maelchvlr">GitHub</a></li>
+    <li><span>Discord: Fuflam</span></li>
+  </ul>
+</section>
+
+</main>
+
+<script src="main.js"></script>
+</body>
+</html>
