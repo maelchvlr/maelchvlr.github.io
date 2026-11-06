@@ -30,7 +30,6 @@ void main() {
 function startParticles() {
   const canvas = document.getElementById('particles');
   const hero = document.getElementById('hero');
-  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const gl = canvas.getContext('webgl', { antialias: false, alpha: true, premultipliedAlpha: true });
   if (!gl) { canvas.hidden = true; return; }
@@ -128,7 +127,6 @@ function startParticles() {
     gl.drawArrays(gl.POINTS, 0, COUNT);
   }
 
-  let animated = false;
   let visible = true;
   let looping = false;
   let last = 0;
@@ -143,10 +141,6 @@ function startParticles() {
   hero.addEventListener('pointerdown', (e) => {
     moveEmitter(e);
     particles.forEach(respawn);
-    if (!animated) {
-      for (let i = 0; i < 90; i++) step(1 / 60);
-      draw();
-    }
   });
 
   function frame(now) {
@@ -164,7 +158,7 @@ function startParticles() {
   }
 
   function loop() {
-    if (!animated || looping || !visible || document.hidden) return;
+    if (looping || !visible || document.hidden) return;
     looping = true;
     last = 0;
     requestAnimationFrame(frame);
@@ -177,18 +171,7 @@ function startParticles() {
     loop();
   }).observe(hero);
   document.addEventListener('visibilitychange', loop);
-
-  // Reduced motion: show one frame of the burst and wait to be asked.
-  if (still) {
-    for (let i = 0; i < 120; i++) step(1 / 60);
-    draw();
-    const button = document.getElementById('hero-motion');
-    button.hidden = false;
-    button.addEventListener('click', () => { button.hidden = true; animated = true; loop(); });
-  } else {
-    animated = true;
-    loop();
-  }
+  loop();
 }
 
 // Clips load and play only while on screen.
