@@ -12,3 +12,5 @@ To preview locally:
 ```bash
 python -m http.server 8770
 ```
+
+GitHub Pages lets browsers cache files for 10 minutes. When `main.js` or `style.css` changes, raise the `?v=` number on their links in `index.html` so a new page never runs with old files.
